@@ -1,7 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import Credential from '../views/Credential.vue'
 import Home from '../views/Home.vue'
 import Post from '../views/Post.vue'
-import Credential from '../views/Credential.vue'
+import Profil from '../views/Profil.vue'
 
 const routes = [
   {
@@ -23,8 +24,8 @@ const routes = [
   {
     path: '/profil',
     name: 'Profil',
-    props: true,
-    component: () => import('../views/Profil.vue')
+    component: Profil,
+    props: true
   },
 ]
 
