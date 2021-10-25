@@ -23,7 +23,7 @@ Lancer la commande `npm run start` pour lancer l'API.
 
 ### Création
 Ouvrer un nouveau terminal.  
-Aller dans le dossier frontend `cd ../frontend`.
+Aller dans le dossier frontend `cd ../frontend`.  
 Installer Node.js.  
 Installer les dépendances Node.js en exécutant la commande `npm install`.
 
