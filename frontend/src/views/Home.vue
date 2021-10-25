@@ -77,6 +77,27 @@ export default {
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.40 );
     backdrop-filter: blur(4px);
   }
+  .addPost::after{
+    position: absolute;
+    top: -85%;
+    right: calc(-50% - 50%);
+    content: 'Ajouter un post';
+    width: 125px;
+
+    height: 2em;
+    border-radius: 20px;
+    background: rgba( 255, 255, 255, 0.60 );
+    box-shadow: 0 1px 10px 0 rgba( 31, 38, 135, 0.40 );
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(40px) scale(0);
+    transition: 0.5s transform ease-in-out;
+  }
+  .addPost:hover::after{
+    transform: translateY(0px) scale(1);
+  }
 
   @media screen and (max-width: 1250px){
     .addPost{

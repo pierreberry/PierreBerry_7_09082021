@@ -1,11 +1,17 @@
 <template>
   <div id="nav">
-    <router-link to="/credential">Credential</router-link> |
-    <router-link to="/">Home</router-link> |
-    <router-link to="/profil">Profil</router-link> 
+    <router-link class="sign-in" to="/credential">
+      <font-awesome-icon :icon="['fas', 'sign-in-alt']" />
+    </router-link> |
+    <router-link class="home" to="/">
+      <font-awesome-icon :icon="['fas', 'home']" />
+    </router-link> |
+    <router-link  class="profil" to="/profil">
+      <font-awesome-icon :icon="['fas', 'user']" />
+    </router-link> 
   </div>
   <notifications />
-    <router-view />
+  <router-view />
 </template>
 
 
@@ -53,8 +59,72 @@
   align-items: center;
   font-weight: bold;
   color: #2c3e50;
+  font-size: 2rem;
 }
 
+  .sign-in::after{
+    position: absolute;
+    content: 'Connexion';
+    width: 20%;
+    top: -80%;
+    font-size: .5em;
+    height: 2em;
+    border-radius: 20px;
+    background: rgba( 255, 255, 255, 0.60 );
+    box-shadow: 0 1px 10px 0 rgba( 31, 38, 135, 0.40 );
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(40px) scale(0);
+    transition: 0.5s transform ease-in-out;
+  }
+  .sign-in:hover::after{
+    transform: translateY(0px) scale(1);
+  }
+
+  .home::after{
+    position: absolute;
+    content: 'Accueil';
+    width: 20%;
+    top: -80%;
+    font-size: .5em;
+    height: 2em;
+    border-radius: 20px;
+    background: rgba( 255, 255, 255, 0.60 );
+    box-shadow: 0 1px 10px 0 rgba( 31, 38, 135, 0.40 );
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(40px) scale(0);
+    transition: 0.5s transform ease-in-out;
+  }
+  .home:hover::after{
+    transform: translateY(0px) scale(1);
+  }
+
+  .profil::after{
+    position: absolute;
+    content: 'Profil';
+    width: 20%;
+    top: -80%;
+    font-size: .5em;
+    height: 2em;
+    border-radius: 20px;
+    background: rgba( 255, 255, 255, 0.60 );
+    box-shadow: 0 1px 10px 0 rgba( 31, 38, 135, 0.40 );
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(40px) scale(0);
+    transition: 0.5s transform ease-in-out;
+  }
+
+  .profil:hover::after{
+    transform: translateY(0px) scale(1);
+  }
 #nav a.router-link-exact-active {
   color: red;
 }

@@ -136,7 +136,7 @@ export default {
     position: absolute;
     top: -85%;
     right: calc(-50% - 50%);
-    content: 'Déconnection';
+    content: 'Déconnexion';
     width: 125px;
     height: 2em;
     border-radius: 20px;
