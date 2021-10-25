@@ -32,7 +32,20 @@
             </div>
             <button class='button-modify-post' @click.prevent="updatePost">Modifier le post</button>
         </form>
-        <button class="delete-post" @click="deletePost">Supprimer le post</button>
+        <button class="delete-post" @click="showDeleteConfirmation = true">Supprimer le post</button>
+        <transition name="component-fade" mode="out-in">
+            <div class="delete-confirmation" v-if="this.showDeleteConfirmation">
+                <p>Êtes vous sûr de vouloir supprimer le post ?</p>
+                <div class="button-confirmation">
+                    <button @click="deletePost">                        
+                            <font-awesome-icon :icon="['fas', 'check']" :style="{fontSize: '2em'}" />
+                    </button>
+                    <button @click="showDeleteConfirmation = false">
+                            <font-awesome-icon :icon="['fas', 'times']" :style="{fontSize: '2em'}" />
+                    </button>
+                </div>
+            </div>
+        </transition>
         <button class="close-update" @click="$emit('close')">X</button>
     </div>
 </template>
@@ -47,7 +60,8 @@
                 profil: JSON.parse(localStorage.getItem('token')),
                 fileToDelete: false,
                 url: "",
-                post: {}
+                post: {},
+                showDeleteConfirmation: false
             }
         },
         mounted(){
@@ -126,6 +140,17 @@
 </script>
 
 <style scoped>
+
+    .component-fade-enter-active,
+    .component-fade-leave-active {
+        transition: all 0.5s ease;
+    }
+
+    .component-fade-enter-from,
+    .component-fade-leave-to {
+        transform: scale(0);
+    }
+
     .update-container{
         width: 60%;
         height: 60%;
@@ -299,6 +324,58 @@
     }
     .delete-post:active{
         box-shadow: inset 0 2px 5px 0 rgba( 31, 38, 135, 0.40 );
+    }
+
+    .delete-confirmation{
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 50%;
+        height: 50%;
+        background: rgba( 255, 255, 255, 0.60 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.40 );
+        backdrop-filter: blur(6px);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+    .delete-confirmation p{
+        width: 100%;
+        height: 30%;
+        font-size: 1.5rem;
+        display: grid;
+        place-items: center;
+    }
+    .delete-confirmation .button-confirmation{
+        width: 100%;
+        height: 30%;
+        display: flex;
+        place-items: center;
+        justify-content: center;
+    }
+    .delete-confirmation .button-confirmation button{
+        color: red;
+        margin: 0 10% 0 10%;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        background: rgba( 255, 255, 255, 0.60 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.40 );
+        backdrop-filter: blur(4px);
+        transition: all 0.5s;
+    }
+    .delete-confirmation .button-confirmation button:nth-child(1):hover{
+        color: white;
+        background: rgb(0, 192, 112);
+    }
+    .delete-confirmation .button-confirmation button:nth-child(2):hover{
+        color: white;
+        background: rgba(238, 14, 14);
     }
 
 
