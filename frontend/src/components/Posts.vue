@@ -3,9 +3,15 @@
   <div class="posts-container"  v-for="post in this.posts" :key="post.id">
       <router-link :to="{ name: 'Post', params: { id: post.id }}">
         <div class="posts-card" >
+          <div class="title">
             <h3>{{post.title}}</h3>
-            <img v-if="post.picture" :src="post.picture" >
+          </div>
+          <div v-if="post.picture" class="image">
+            <img :src="post.picture" >
+          </div>
+          <div v-if="post.text" class="texte">
             <p>{{post.text}}</p>
+          </div>
         </div>
       </router-link>
   </div>
@@ -44,7 +50,9 @@ a{
     backdrop-filter: blur(4px);
     border-radius: 10px;
 }
-
+a:visited{
+  color: black;
+}
 .posts-card{
   width: 100%;
   height: 100%;
@@ -53,14 +61,34 @@ a{
   align-items: center;
   justify-content: space-around;
 }
-.posts-card img{
-  width: 60%;
+.posts-card .title{
+  width: 100%;
+  height: 10%;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
 }
-.posts-card p{
-  width: 80%;
-  height: 30%;
-  text-align: justify;
+
+.posts-card .image{
+  width: 100%;
+  height: 50%;
+}
+.posts-card .image img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.posts-card .texte{
+  width: 100%;
+  height: 40%;
+  display: grid;
+  place-items: center;
   overflow: hidden;
+}
+
+.posts-card p{
+  width: 90%;
+  text-align: justify;
 }
 
 @media screen and (max-width: 1250px){

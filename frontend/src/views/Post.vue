@@ -7,7 +7,7 @@
       <div v-if="post.picture" class="post-picture">
         <img :src="post.picture">
       </div>
-      <div class="post-text">
+      <div v-if="post.text" class="post-text">
         <p>{{ post.text }}</p>
       </div>
     </div>
@@ -130,7 +130,7 @@ export default {
     backdrop-filter: blur(20px);
     border-radius: 10px;
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y: auto; 
   }
   .post-card .post-title{
     width: 100%;
@@ -203,7 +203,7 @@ export default {
     backdrop-filter: blur(20px);
     border-radius: 10px;
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   @media screen and (max-width: 1000px){

@@ -22,7 +22,7 @@
                 name="text"
                 v-model="text"
             />
-            <button class="button-add-post">Ajouter un post</button>
+            <button class="button-add-post" @click="$emit('close')">Ajouter un post</button>
         </form>
         <button class="close-update" @click="$emit('close')">X</button>
     </div>

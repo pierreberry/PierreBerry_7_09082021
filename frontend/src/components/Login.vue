@@ -12,7 +12,7 @@
         />
         <input
           placeholder="Mot de passe"
-          type="text"
+          type="password"
           name="password"
           v-model="password"
           required

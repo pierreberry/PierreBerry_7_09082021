@@ -3,16 +3,16 @@
     <h1>Rejoins nous !</h1>
     <form @submit.prevent="inscription" method="POST">
       <div class="input-form">
-        <input
+        <input autocomplete="off"
           placeholder="Email"
           type="email"
           name="email"
           v-model="emailAddress"
           required
         />
-        <input
+        <input autocomplete="off"
           placeholder="Mot de passe"
-          type="text"
+          type="password"
           name="password"
           v-model="password"
           required
