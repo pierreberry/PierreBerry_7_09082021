@@ -38,7 +38,7 @@ exports.signup = (req, res) => {
             })
             .then((account) => account.createProfil({}))
             .then(() => res.status(201).json({ message: 'Compte créé !' }))
-            .catch(error => res.status(400).send( error ))
+            .catch(error => res.status(400).send( 'Adresse email déjà utilisé' ))
         })
         .catch(error => res.status(500).send( error ))
 }

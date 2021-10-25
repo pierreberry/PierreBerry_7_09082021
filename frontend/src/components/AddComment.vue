@@ -51,6 +51,7 @@
                         type: "success",
                         title: "Commentaire crée !",
                     });
+                    document.querySelector(".input-add-comment").value = ""
                     JSONres.fk_users_comments = profil.accountId
                     this.showComment(JSONres)
                 })

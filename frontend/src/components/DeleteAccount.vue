@@ -11,10 +11,17 @@
                 id="emailAddress"
                 v-model="emailAddress"
             />
-        <p v-if="emailAddress != emailToConfirm" style="color:red">{{emailAddress}}</p>
-        <p v-else style="color:green">{{emailAddress}}</p>
+            <div class="email-confirmed">
+                <p v-if="emailAddress != emailToConfirm" style="color:red">{{emailAddress}}</p>
+                <p v-else style="color:green">{{emailAddress}}</p>
+            </div>
         </fieldset>
-        <button>Supprimer le compte</button>
+
+        <div class="button-delete">
+            <transition name="component-fade" mode="out-in">
+                <button v-if="emailAddress == emailToConfirm">Supprimer le compte</button>
+            </transition>
+        </div>
     </form>
 </template>
 
@@ -55,10 +62,10 @@ export default {
 <style scoped>
     .email-confirm{
         width: 100%;
-        height: 45%;
+        height: 50%;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-around;
         place-items: center;
         border: none;
     }
@@ -74,6 +81,14 @@ export default {
     }
     .email-confirm input:focus{
         outline: none;
+    }
+    .email-confirmed{
+        width: 100%;
+        height: 10%;
+    }
+    .button-delete{
+        width: 100%;
+        height: 20%;
     }
     .form button{        
         cursor: pointer;
