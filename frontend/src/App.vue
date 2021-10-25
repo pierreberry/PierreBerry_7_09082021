@@ -16,7 +16,7 @@
 
 
 
-<style >
+<style>
 
 *{
   margin: 0;
