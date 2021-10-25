@@ -1,6 +1,6 @@
 <template>
   <div class="login-signup">
-    <h1>Rejoins nous !</h1>
+    <h1>Rejoins-nous !</h1>
     <form @submit.prevent="inscription" method="POST">
       <div class="input-form">
         <input autocomplete="off"
