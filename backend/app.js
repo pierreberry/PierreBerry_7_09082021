@@ -12,10 +12,6 @@ db.authenticate()
     .then(() => console.log(`Connected at ${process.env.DATABASE_NAME} with ${process.env.DATABASE_USERNAME}`))
     .catch(err => console.log(err))
 
-/* db.sync({force:true}).then(function () {
-    console.log("DB Sync'd Up")
-}) */
-
 const app = express();
 
 app.use((req, res, next) => {
@@ -24,10 +20,6 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
     next();
 });
-
-app.get('/', (req, res) => {
-    res.send("index");
-})
 
 app.use(express.json());
 
