@@ -78,6 +78,10 @@
                     return response.json();
                 })
                 .then(JSONres => {
+                    this.$notify({
+                    type: "success",
+                    title: "Post créé !",
+                    });
                     this.showMyPost(JSONres)
                 })
                 .catch((error) => {
