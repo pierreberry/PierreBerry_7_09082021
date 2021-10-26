@@ -49,7 +49,7 @@
                 .then(JSONres => {
                     this.$notify({
                         type: "success",
-                        title: "Commentaire crée !",
+                        title: "Commentaire créé !",
                     });
                     document.querySelector(".input-add-comment").value = ""
                     JSONres.fk_users_comments = profil.accountId
