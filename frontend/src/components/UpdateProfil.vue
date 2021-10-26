@@ -19,7 +19,8 @@
                 <fieldset class="image-profil">
                     <div class="img-profil">
                         <label for="profilPicture">
-                            <img v-if="url" :src="url">                            
+                            <img v-if="!url && !profil.profilPicture">
+                            <img v-else-if="url" :src="url">                            
                             <img v-else :src="profil.profilPicture">
                         </label>
                     </div>
