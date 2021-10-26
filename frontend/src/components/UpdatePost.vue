@@ -23,8 +23,8 @@
                         <input  @change="onFileChange" type="file" ref="fileupload" id="postPicture" name="image"/>
                     </div>
                     <div class="image-preview" v-if="!fileToDelete">
-                        <span v-if="url || post.postPicture">
-                            <button v-if="url != '' || post.postPicture" class="delete-img" @click.prevent="deleteFile" >X</button>
+                        <span v-if="url || post.picture">
+                            <button v-if="url != '' || post.picture" class="delete-img" @click.prevent="deleteFile" >X</button>
                             <img v-if="url != ''" :src="url">
                             <img v-else :src="post.picture">
                         </span>
