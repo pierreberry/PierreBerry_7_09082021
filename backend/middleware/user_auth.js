@@ -12,5 +12,5 @@ module.exports = (req, res, next) => {
         } else {
             next();
         }
-    } catch(error) { res.status(401).json({ message: 'Erreur' + error }) }
+    } catch(error) { res.status(401).send( error ) }
 };

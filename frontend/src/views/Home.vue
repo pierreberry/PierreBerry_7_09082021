@@ -24,7 +24,8 @@ export default {
   data() {
     return{
       posts: [],
-      showAddPost: false
+      showAddPost: false,
+      profilStorage: JSON.parse(localStorage.getItem('token'))
     }
   },
   methods: {
@@ -34,6 +35,23 @@ export default {
     }
   },
   beforeMount(){
+    if (this.profilStorage) {      
+      fetch("http://localhost:5000/api/profil/" + this.profilStorage.accountId, {
+        method: "GET",
+        headers: {
+          "Authorization": "Bearer " + this.profilStorage.token
+        }
+      })
+      .then((response) => {
+        if(response.ok) {
+          return response.json()
+        }
+        return response.text().then(text => {throw new Error(text)})
+      })
+      .catch(() => {
+        localStorage.removeItem('token');
+      })
+    }
     if(!localStorage.getItem('token')){
       this.$router.push("/credential")
     }
